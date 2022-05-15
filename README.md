@@ -1,5 +1,5 @@
 # mkdocs-multiversion-plugin
-[![PyPI Version][pypi-v-image]][pypi-v-link]
+[![PyPI Version][pypi-image]][pypi-link]
 
 `mkdocs-multiversion-plugin` is a plugin for [mkdocs](https://www.mkdocs.org/) - a **fast**, **simple** and **downright gorgeous** gorgeous static site generator that's geared towards building project documentation. 
 
@@ -60,3 +60,7 @@ Please note that `mkdocs-multiversion-plugin` is currently in **Beta** and there
 
 ### License
 [BSD-3-Clause](https://github.com/blatio/mkdocs-multiversion-plugin/blob/master/LICENSE)
+
+<!-- Badges -->
+[pypi-image]: https://img.shields.io/pypi/v/mkdocs-multiversion-plugin.svg
+[pypi-link]: https://pypi.org/project/mkdocs-multiversion-plugin/
