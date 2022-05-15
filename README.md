@@ -62,5 +62,5 @@ Please note that `mkdocs-multiversion-plugin` is currently in **Beta** and there
 [BSD-3-Clause](https://github.com/blatio/mkdocs-multiversion-plugin/blob/master/LICENSE)
 
 <!-- Badges -->
-[pypi-image]: https://img.shields.io/pypi/v/mkdocs-multiversion-plugin.svg
+[pypi-image]: https://img.shields.io/pypi/v/mkdocs-multiversion-plugin
 [pypi-link]: https://pypi.org/project/mkdocs-multiversion-plugin/
