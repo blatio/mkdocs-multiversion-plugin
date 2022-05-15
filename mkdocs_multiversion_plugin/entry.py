@@ -11,9 +11,9 @@ from mkdocs.config import config_options
 from mkdocs.plugins import BasePlugin
 from mkdocs.config import Config
 from mkdocs.structure.files import File, Files
-from mkdcos_multiversion_plugin.git import Git
+from mkdocs_multiversion_plugin.git import Git
 
-logger = logging.getLogger('mkdocs.plugins.mkdcos_multiversion_plugin')
+logger = logging.getLogger('mkdocs.plugins.mkdocs_multiversion_plugin')
 
 
 def get_theme_dir(theme_name: str) -> str:
@@ -26,7 +26,7 @@ def get_theme_dir(theme_name: str) -> str:
     Returns:
         str: Path to the theme.
     """
-    themes = list(iter_entry_points('mkdcos_multiversion_plugin.themes', theme_name))
+    themes = list(iter_entry_points('mkdocs_multiversion_plugin.themes', theme_name))
     if len(themes) == 0:
         raise ValueError("theme '{}' unsupported".format(theme_name))
     return os.path.dirname(themes[0].load().__file__)
