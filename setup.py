@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="mkdcos-multiversion-plugin",
+    name="mkdocs-multiversion-plugin",
     version="0.1.0",
     author="blatio",
     author_email="blatio@gmail.com",
