@@ -1,6 +1,6 @@
 # mkdocs-multiversion-plugin
 
-`mkdocs-multiversion-plugin` is a plugin for [mkdocs](https://www.mkdocs.org/) - a fast, simple and downright gorgeous static site generator that's geared towards building project documentation. 
+`mkdocs-multiversion-plugin` is a plugin for [mkdocs](https://www.mkdocs.org/) - a **fast**, **simple** and **downright gorgeous** gorgeous static site generator that's geared towards building project documentation. 
 
 `mkdocs-multiversion-plugin` allows you to build and have different versions of your project documentation.
 
@@ -41,7 +41,7 @@ plugins:
 List of available config options:
 
 | Name | Type | Default value | Description |
-|-|:-:|:-:||
+| :- | :-: | :-: | :- |
 | `version_in_site_name` | string | `True` | Adds the version name to the mkdocs `site_name` config. |
 | `branch_whitelist` | string | `^.*$` | Whitelist branch names, regex. |
 | `tag_whitelist` | string | `^.*$` | Whitelist tag names, regex. |
@@ -52,7 +52,7 @@ List of available config options:
 
 ## Contributing 
 
-Please note that mkdocs-multiversion-plugin is currently in **Beta** and there may be missing feature/documentation so if you could help out by either:
+Please note that `mkdocs-multiversion-plugin` is currently in **Beta** and there may be missing feature/documentation so if you could help out by either:
 
 1. finding and reporting bugs
 2. contributing by checking out the [issues](https://github.com/blatio/mkdocs-multiversion-plugin/issues)
