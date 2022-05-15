@@ -1,0 +1,1 @@
+name = 'mkdocs_multiversion_plugin'

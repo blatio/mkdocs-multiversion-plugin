@@ -1,0 +1,1 @@
+recursive-include mkdcos_multiversion_plugin/themes *.js *.css

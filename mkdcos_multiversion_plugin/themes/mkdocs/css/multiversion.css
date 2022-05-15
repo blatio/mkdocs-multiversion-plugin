@@ -1,0 +1,26 @@
+#multiversion {
+  padding: 0 10px;
+}
+
+#multiversion > select {
+  width: auto;
+  height: auto;
+  padding: 1px;
+}
+
+/* MkDocs v1.0 */
+.navbar-header > #multiversion{
+  display: flex;
+  align-items: center;
+}
+
+/* MkDocs v1.1 */
+.container > #multiversion {
+  flex-grow: 1;
+}
+
+@media (min-width: 992px) {
+  .container > #multiversion {
+    flex-grow: 0;
+  }
+}
