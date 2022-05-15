@@ -4,7 +4,7 @@
 
 `mkdocs-multiversion-plugin` allows you to build and have different versions of your project documentation.
 
-![mkdocs-multiversion-plugin-demo-screen](doc/image/screen.png?raw=true "mkdocs-multiversion-plugin demo screen")
+![mkdocs-multiversion-plugin-demo-screen](doc/img/screen.png?raw=true "mkdocs-multiversion-plugin demo screen")
 
 ## How It Works
 
