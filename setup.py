@@ -77,9 +77,6 @@ setuptools.setup(
         ],
     },
     python_requires='>=3.9',
-    project_urls={
-        'Documentation': ''
-    },
     install_requires=[
         'mkdocs >= 1.3',
         'natsort',
