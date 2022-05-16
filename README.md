@@ -50,6 +50,50 @@ List of available config options:
 | `version_name_format` | string | `{version}` | Version name format, argument: `{version`. |
 | `css_dir` | string | `css` | The name of the directory for css files. |
 | `javascript_dir` | string | `js` |  The name of the directory for javascript files. |
+| `versions_url` | string | `.` | The URL for the versions file. |
+| `versions_file_name` | string | `multiversion.json`, `index.php` | The name for the file on the server containing generated versions. |
+| `generate_versions_file` | bool | true | Specifies whether to generate a file with versions. |
+| `versions_provider` | string | `static` | Available version providers: `php`, `static`. |
+
+> If the `generate_versions_file` configuration option is false, you need to deliver the file with the available versions yourself.
+
+The file should contain JSON in the format:
+```json
+{
+    'stable' : {
+        'name' : 'stable',
+        'latest' : false
+    },
+    '0.2.0' : {
+        'latest' : true,
+        'name' : 'latest release (0.2.0)'
+    },
+    '0.1.0' : {
+        'latest' : false,
+        'name' : '0.1.0'
+    }
+}
+```
+
+### Versions provider
+There are two documentation versions providers:
+* static - static json file generated during building documentation containing versions from git repository.
+* php - the dynamic engine that generates a list of available versions on the server. A server with PHP support is required for its operation. Generated versions are a list of directories on the server.
+#### Static provider configuration:
+```yml
+plugins:
+  - multiversion
+```
+
+#### PHP provider configuration:
+```yml
+plugins:
+  - multiversion:
+    versions_provider: php
+```
+
+> It is possible to override name of the static file: `versions_file_name`. Be careful to enter the correct path to the file. In case it is a relative path, the name will be prefixed with the path to the base directory: `base_url`.
+
 
 ## Contributing 
 

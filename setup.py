@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="mkdocs-multiversion-plugin",
-    version="0.1.0",
+    version="0.2.0",
     author="blatio",
     author_email="blatio@gmail.com",
     license='BSD',
@@ -24,6 +24,8 @@ setuptools.setup(
         'Intended Audience :: Information Technology',
         'License :: OSI Approved :: BSD License',
         'Programming Language :: Python',
+        'Programming Language :: Python :: 3.7'
+        'Programming Language :: Python :: 3.8'
         'Programming Language :: Python :: 3.9'
     ],
     entry_points={
@@ -76,7 +78,7 @@ setuptools.setup(
             'yeti-classic = mkdocs_multiversion_plugin.themes.mkdocs',
         ],
     },
-    python_requires='>=3.9',
+    python_requires='>=3.7',
     install_requires=[
         'mkdocs >= 1.3',
         'natsort',

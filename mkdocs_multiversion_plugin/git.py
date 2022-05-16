@@ -37,15 +37,28 @@ class Git:
             output = subprocess.check_output(cmd, cwd=cwd).decode()
             return output.rstrip("\n")
         except Exception as e:
-            logger.debug("It's not branch, get the tag name")
-            cmd = (
-                'git',
-                'describe',
-                '--tags',
-                '--exact-match'
-            )
-            output = subprocess.check_output(cmd, cwd=cwd).decode()
-            return output.rstrip("\n")
+            try:
+                logger.debug("It's not a branch, get the tag name")
+                cmd = (
+                    'git',
+                    'describe',
+                    '--tags',
+                    '--exact-match'
+                )
+                output = subprocess.check_output(cmd, cwd=cwd).decode()
+                return output.rstrip("\n")
+            except Exception as ex:
+                logger.debug("It's not a tag, detached state")
+                cmd = (
+                    'git',
+                    'branch',
+                    '--remote',
+                    '--no-abbrev',
+                    '--contains'
+                )
+                output = subprocess.check_output(cmd, cwd=cwd).decode()
+                return output.split('/')[-1].rstrip("\n")
+  
 
     @staticmethod
     def get_all_refs():

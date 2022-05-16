@@ -17,18 +17,30 @@ function make_select(id, options, selected) {
 	return select;
 }
 
+function is_absolute(url) {
+    var isAbsolute = new RegExp('^([a-z]+://|/)', 'i');
+    return isAbsolute.test(url);
+}
+
+function make_url(url) {
+    return is_absolute(url) ? url : base_url + '/../' + url;
+}
+
 $(document).ready(function(){
-	$.getJSON('../multiversion.json').done(function( versions ) {
-		var place = $('.wy-side-nav-search').children('.icon-home').first();
-	    var select = make_select('multiversion-selector', versions, multiversion.current_version);
-		$(select).attr('class', 'form-control form-select form-select-sm');
-		var obj = $(select).insertAfter(place);
-		obj.change(function() {
-			var url = $(location).attr('href');
-			var newVersion = $(this).val();
-			var repRegex = new RegExp(multiversion.current_version,'g');
-			url = url.replace(repRegex, newVersion);
-			$(location).attr('href', url);
+	if (multiversion) {
+	    var url = make_url(multiversion.versions_url ? multiversion.versions_url : 'multiversion.json');
+		$.getJSON(url).done(function(versions) {
+			var place = $('.wy-side-nav-search').children().first();
+			var select = make_select('multiversion-selector', versions, multiversion.current_version);
+			$(select).attr('class', 'form-control form-select form-select-sm');
+			var obj = $(select).insertAfter(place);
+			obj.change(function() {
+				var url = $(location).attr('href');
+				var newVersion = $(this).val();
+				var repRegex = new RegExp(multiversion.current_version,'g');
+				url = url.replace(repRegex, newVersion);
+				$(location).attr('href', url);
+			});
 		});
-	});
+	}
 })
