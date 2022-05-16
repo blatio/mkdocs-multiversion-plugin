@@ -187,6 +187,8 @@ class Multiversion(BasePlugin):
 
     def on_post_build(self, config: Config, **kwargs):
         """
+        Post-build scripts.
+
         Arguments:
             config (Config): global configuration object.
         """
@@ -198,7 +200,13 @@ class Multiversion(BasePlugin):
             elif self.config[self.CONFIG_VERSIONS_PROVIDER] == 'php':
                 self.php_provider(self.version_file_name)
 
-    def php_provider(self, file_name):
+    def php_provider(self, file_name : str):
+        """
+        Generates dynamic PHP versions provider:
+
+        Arguments:
+            file_name (str): name of the file to be saved.
+        """
         try:
             path = os.path.dirname(__file__)
             with open('%s/providers/php.tpl' % path) as file:
@@ -206,30 +214,33 @@ class Multiversion(BasePlugin):
                 tpl = Template(content)
                 data = tpl.render(latest_version_name_format = self.config[self.CONFIG_LATEST_VERSION_NAME_FORMAT].format(version='%s'),
                                   version_name_format = self.config[self.CONFIG_VERSION_NAME_FORMAT].format(version='%s'))
-                with open(os.path.join(self.site_dir, self.version_file_name), 'w') as file:
+                with open(os.path.join(self.site_dir, file_name), 'w') as file:
                     file.write(data)
 
         except Exception as ex:
             raise PluginError('[multiversion] %s' % ex) from ex
 
-    def static_provider(self, file_name):
+    def static_provider(self, file_name : str):
         """
         Generates static file containing versions in format:
         {
-            'stable' : {
-                'name' : 'stable',
-                'latest' : false
+            "stable" : {
+                "name" : "stable",
+                "latest" : false
             },
-            '0.2.0' : {
-                'latest' : true,
-                'name' : 'latest release (0.2.0)'
+            "0.2.0" : {
+                "latest" : true,
+                "name" : "latest release (0.2.0)"
             },
-            '0.1.0' : {
-                'latest' : false,
-                'name' : '0.1.0'
+            "0.1.0" : {
+                "latest" : false,
+                "name" : "0.1.0"
             }
         }
-        """
+
+        Arguments:
+            file_name (str): name of the file to be saved.
+\        """
         # get versions from git
         try:
             gitrefs = Git.get_refs(self.config[self.CONFIG_TAG_WHITELIST], self.config[self.CONFIG_BRANCH_WHITELIST])
@@ -263,7 +274,7 @@ class Multiversion(BasePlugin):
                     )
 
             y = json.dumps(versions)
-            f = open(os.path.join(self.site_dir, self.version_file_name), "w")
+            f = open(os.path.join(self.site_dir, file_name), "w")
             f.write(y)
             f.close()
         except Exception as ex:

@@ -60,17 +60,17 @@ List of available config options:
 The file should contain JSON in the format:
 ```json
 {
-    'stable' : {
-        'name' : 'stable',
-        'latest' : false
+    "stable" : {
+        "name" : "stable",
+        "latest" : false
     },
-    '0.2.0' : {
-        'latest' : true,
-        'name' : 'latest release (0.2.0)'
+    "0.2.0" : {
+        "latest" : true,
+        "name" : "latest release (0.2.0)"
     },
-    '0.1.0' : {
-        'latest' : false,
-        'name' : '0.1.0'
+    "0.1.0" : {
+        "latest" : false,
+        "name" : "0.1.0"
     }
 }
 ```
