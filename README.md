@@ -50,7 +50,7 @@ List of available config options:
 | `version_name_format` | string | `{version}` | Version name format, argument: `{version`. |
 | `css_dir` | string | `css` | The name of the directory for css files. |
 | `javascript_dir` | string | `js` |  The name of the directory for javascript files. |
-| `versions_url` | string | `.` | The URL for the versions file. |
+| `versions_url` | string | '' | The URL for the versions file. |
 | `versions_file_name` | string | `multiversion.json`, `index.php` | The name for the file on the server containing generated versions. |
 | `generate_versions_file` | bool | true | Specifies whether to generate a file with versions. |
 | `versions_provider` | string | `static` | Available version providers: `php`, `static`. |
