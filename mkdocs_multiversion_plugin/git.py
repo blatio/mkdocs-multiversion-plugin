@@ -57,7 +57,7 @@ class Git:
                     '--contains'
                 )
                 output = subprocess.check_output(cmd, cwd=cwd).decode()
-                return output.split('/')[-1].rstrip("\n")
+                return output.split('\n')[0].split('/')[-1]
   
 
     @staticmethod
